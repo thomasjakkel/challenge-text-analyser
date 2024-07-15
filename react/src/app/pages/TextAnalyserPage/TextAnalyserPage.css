@@ -1,0 +1,19 @@
+.TextAnalyserPage {
+    text-align: center;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f1f1f1;
+}
+
+.TextAnalyserPage-body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: #000;
+    width: 80vw;
+}

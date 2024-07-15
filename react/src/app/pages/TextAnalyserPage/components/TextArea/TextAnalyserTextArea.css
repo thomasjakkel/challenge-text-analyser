@@ -1,0 +1,23 @@
+.TextAnalyserTextArea-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 8px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.TextAnalyserTextArea-content {
+    padding: 16px;
+}
+
+.TextAnalyserTextArea-textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none; /* Remove the border */
+    border-radius: 6px;
+    resize: vertical;
+    height: 500px;
+}
