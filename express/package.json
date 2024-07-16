@@ -6,7 +6,7 @@
     "develop": "nodemon src/index.ts",
     "build": "yarn tsc",
     "start": "node dist/index.js",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
