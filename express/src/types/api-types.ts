@@ -17,47 +17,47 @@ export type Paths = {
 // Operations
 // Why status code 200? -> https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design#post-methods
 export type CountCharacters = {
-  response: number
+  response: { result: number }
   status: 200
 }
 
 export type CountWords = {
-  response: number
+  response: { result: number }
   status: 200
 }
 
 export type CountSentences = {
-  response: number
+  response: { result: number }
   status: 200
 }
 export type CountLines = {
-  response: number
+  response: { result: number }
   status: 200
 }
 export type CountAnagrams = {
-  response: number
+  response: { result: number }
   status: 200
 }
 export type MostUsedCharacter = {
-  response: string
+  response: { result: string }
   status: 200
 }
 
 export type MostUsedWord = {
-  response: string
+  response: { result: string }
   status: 200
 }
 
 export type AverageReadingTime = {
-  response: number
+  response: { result: number }
   status: 200
 }
 
 export type LongestAnagram = {
-  response: string
+  response: { result: string }
   status: 200
 }
 export type LongestPalindromicSubstring = {
-  response: string
+  response: { result: string }
   status: 200
 }

@@ -1,3 +1,3 @@
 export type AnalyseText = {
-  text: string[]
+  text: string
 }

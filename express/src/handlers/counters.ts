@@ -9,7 +9,7 @@ export const countCharacters = (
 ) => {
   const text = req.body.text
   const status: CountCharacters["status"] = 200
-  res.status(status).send(0)
+  res.status(status).send({ result: 0 })
 }
 
 export const countWords = (
@@ -19,5 +19,5 @@ export const countWords = (
   const text = req.body.text
   const filter = req.query.filter
   const status: CountWords["status"] = 200
-  res.status(status).send(0)
+  res.status(status).send({ result: 0 })
 }
