@@ -1,13 +1,15 @@
 import "./SubmitButton.css"
 
-function SubmitButton() {
-
-    return (
-        <div className="SubmitButton-container">
-            <button>Start analysis</button>
-        </div>
-
-    );
+type AnalysisTrigger = {
+  analysisTrigger: () => void
 }
 
-export default SubmitButton;
+const SubmitButton = ({ analysisTrigger }: AnalysisTrigger) => {
+  return (
+    <div className="SubmitButton-container">
+      <button onClick={analysisTrigger}>Start analysis</button>
+    </div>
+  )
+}
+
+export default SubmitButton
