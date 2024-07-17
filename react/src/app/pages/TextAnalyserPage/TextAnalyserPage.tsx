@@ -29,8 +29,12 @@ const WorkAround = () => {
   const [fullAnalysis, setFullAnalysis] = useState<FullAnalysis>(initAnalysis)
 
   const handleAnalysisTrigger = async () => {
-    const a = await getFullAnalysis()
-    setFullAnalysis(() => a)
+    const textToAnalyse = document.getElementById("textAnalyserArea")?.innerHTML
+    if (textToAnalyse === undefined) console.error("Analyse Text is undefined")
+    const analysedText = await getFullAnalysis({
+      text: textToAnalyse === undefined ? "" : textToAnalyse,
+    })
+    setFullAnalysis(() => analysedText)
   }
   return (
     <div className="TextAnalyserPage">

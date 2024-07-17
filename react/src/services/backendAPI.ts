@@ -3,17 +3,13 @@ import { FullAnalysis } from "./types/fullAnalysis"
 import { AnalyseText } from "./types/text-analyser.dto"
 
 const url = "http://localhost:8000"
-const body: AnalyseText = { text: "" }
 
 const fetchData = async (endpoint: string, body: AnalyseText) => {
-  const controller = new AbortController()
-  const signal = controller.signal
   try {
     const response = await fetch(`${url}${endpoint}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
-      signal,
     })
     if (!response.ok) throw new Error(response.statusText)
     const data: CountCharacters["response"] = await response.json()
@@ -23,22 +19,22 @@ const fetchData = async (endpoint: string, body: AnalyseText) => {
   }
 }
 
-export const countCharacters = async () => {
+export const countCharacters = async (body: AnalyseText) => {
   const result = await fetchData("/counters/characters", body)
   return result === undefined ? 0 : result
 }
 
-export const countWords = async () => {
+export const countWords = async (body: AnalyseText) => {
   const result = await fetchData("/counters/words", body)
   return result === undefined ? 0 : result
 }
 
-export const countUniqueWords = async () => {
+export const countUniqueWords = async (body: AnalyseText) => {
   const result = await fetchData("/counters/words?filter=unique", body)
   return result === undefined ? 0 : result
 }
 
-export const countWordsInLongestSentence = async () => {
+export const countWordsInLongestSentence = async (body: AnalyseText) => {
   const result = await fetchData(
     "/counters/words?filter=in-longest-sentence",
     body
@@ -46,63 +42,63 @@ export const countWordsInLongestSentence = async () => {
   return result === undefined ? 0 : result
 }
 
-export const countSentences = async () => {
+export const countSentences = async (body: AnalyseText) => {
   const result = await fetchData("/counters/sentences", body)
   return result === undefined ? 0 : result
 }
 
-export const countLines = async () => {
+export const countLines = async (body: AnalyseText) => {
   const result = await fetchData("/counters/lines", body)
   return result === undefined ? 0 : result
 }
 
-export const countAnagrams = async () => {
+export const countAnagrams = async (body: AnalyseText) => {
   const result = await fetchData("/counters/anagrams", body)
   return result === undefined ? 0 : result
 }
 
-export const mostUsedCharacter = async () => {
+export const mostUsedCharacter = async (body: AnalyseText) => {
   const result = await fetchData("/task-items/characters", body)
   return result === undefined || typeof result === "number" ? "" : result
 }
 
-export const mostUsedWord = async () => {
+export const mostUsedWord = async (body: AnalyseText) => {
   const result = await fetchData("/task-items/words", body)
   return result === undefined || typeof result === "number" ? "" : result
 }
 
-export const averageReadingTime = async () => {
+export const averageReadingTime = async (body: AnalyseText) => {
   const result = await fetchData("/task-items/reading-time", body)
   return result === undefined ? 0 : result
 }
 
-export const longestAnagram = async () => {
+export const longestAnagram = async (body: AnalyseText) => {
   const result = await fetchData("/task-items/anagrams", body)
   return result === undefined || typeof result === "number" ? "" : result
 }
 
-export const longestPalindromicSubstring = async () => {
+export const longestPalindromicSubstring = async (body: AnalyseText) => {
   const result = await fetchData("/task-items/palindromes", body)
   return result === undefined || typeof result === "number" ? "" : result
 }
 
-export const getFullAnalysis = async () => {
+export const getFullAnalysis = async (body: AnalyseText) => {
   const fullAnalysis: FullAnalysis = {
     counters: {
-      countCharacters: await countCharacters(),
-      countWords: await countWords(),
-      countUniqueWords: await countUniqueWords(),
-      countWordsInLongestSentence: await countWordsInLongestSentence(),
-      countSentences: await countSentences(),
-      countLines: await countLines(),
-      countAnagrams: await countAnagrams(),
+      countCharacters: await countCharacters(body),
+      countWords: await countWords(body),
+      countUniqueWords: await countUniqueWords(body),
+      countWordsInLongestSentence: await countWordsInLongestSentence(body),
+      countSentences: await countSentences(body),
+      countLines: await countLines(body),
+      countAnagrams: await countAnagrams(body),
     },
     taskItems: {
-      mostUsedCharacter: await mostUsedCharacter(),
-      mostUsedWord: await mostUsedWord(),
-      averageReadingTime: await averageReadingTime(),
-      longestAnagram: await longestAnagram(),
-      longestPalindromicSubstring: await longestPalindromicSubstring(),
+      mostUsedCharacter: await mostUsedCharacter(body),
+      mostUsedWord: await mostUsedWord(body),
+      averageReadingTime: await averageReadingTime(body),
+      longestAnagram: await longestAnagram(body),
+      longestPalindromicSubstring: await longestPalindromicSubstring(body),
     },
   }
 
