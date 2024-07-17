@@ -65,7 +65,8 @@ describe("COUNTERS", () => {
 
     it("should respond with 404 for a wrong query parameter", async () => {
       response = await request(app)
-        .post("/counters/words?filter=wrongFilter")
+        .post("/counters/words")
+        .query({ filter: "wrong" })
         .send(hundredWords)
 
       expect(response.status).toBe(404)
@@ -79,7 +80,8 @@ describe("COUNTERS", () => {
     let response: Response
     beforeAll(async () => {
       response = await request(app)
-        .post("/counters/words?filter=unique")
+        .post("/counters/words")
+        .query({ filter: "unique" })
         .send(tenUniqueWords)
     })
 
@@ -127,7 +129,7 @@ describe("COUNTERS", () => {
     let response: Response
     beforeAll(async () => {
       response = await request(app)
-        .post("/counters/words?fiter=in-longest-sentence")
+        .post("/counters/words?filter=in-longest-sentence")
         .send(tenWordsInLongestSentence)
     })
 
