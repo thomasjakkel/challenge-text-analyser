@@ -8,6 +8,7 @@ import {
   MostUsedWord,
 } from "../types/api-types"
 import {
+  averageReadingTimeOneMinute,
   longestAnagram,
   longestPalindromicSubstring,
   mostUsedCharL,
@@ -72,7 +73,7 @@ describe("TASK ITEMS", () => {
     beforeAll(async () => {
       response = await request(app)
         .post("/task-items/reading-time")
-        .send(tenLines)
+        .send(averageReadingTimeOneMinute)
     })
 
     it("should respond with the correct type", () => {
@@ -83,6 +84,7 @@ describe("TASK ITEMS", () => {
       expect(response.status).toBe(status)
     })
 
+    // 220 words per minute
     it("should calculate the average reading time in [min] in a given text correctly", () => {
       expect(response.body.result).toBe(1)
     })
@@ -132,7 +134,7 @@ describe("TASK ITEMS", () => {
     })
 
     it("should find the longest palindromic substring in a given text correctly", () => {
-      expect(response.body.result).toBe("Rentner")
+      expect(response.body.result).toBe("rentttner")
     })
   })
 })

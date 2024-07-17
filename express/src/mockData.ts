@@ -39,6 +39,12 @@ export const twoAnagrams: AnalyseText = {
   text: "Lorem Ipsum dolor a abc thomas thmaso silent listen hghj ",
 }
 
+export const averageReadingTimeOneMinute: AnalyseText = {
+  text: ` Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis
+        `,
+}
+
 export const mostUsedCharL: AnalyseText = {
   text: "llllll LLLLL lll Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut l",
 }
@@ -48,9 +54,9 @@ export const mostUsedWordLorem: AnalyseText = {
 }
 
 export const longestAnagram: AnalyseText = {
-  text: "Lorem Ipsum sum mus thomas thmaso silent listen abcdefgihj abcgfedhij",
+  text: "Lorem Ipsum sum mus ums thomas thmaso silent listen abcdefgihj abcgfedhij",
 }
 
 export const longestPalindromicSubstring: AnalyseText = {
-  text: "Lorem Ipsum sum mus thomas thmaso Rentner aabbaa",
+  text: "Lorem Ipsum sum mus thomas thmaso Rentner aabbaa abcdefghijRENTTTNERkabala",
 }
