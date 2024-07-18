@@ -4,11 +4,16 @@ export const countCharactersAlgorithm = (analyseText: string): number => {
 }
 
 export const countWordsAlgorithm = (analyseText: string): number => {
-  return analyseText.trim().split(/\s+/g).length
+  return analyseText.trim().toLowerCase().replace(/[.!?]/g, "").split(/\s+/g)
+    .length
 }
 
 export const countUniqueWordsAlgorithm = (analyseText: string): number => {
-  const words = analyseText.trim().split(/\s+/g)
+  const words = analyseText
+    .trim()
+    .toLowerCase()
+    .replace(/[.!?]/g, "")
+    .split(/\s+/g)
   return getUniqueWords(words).length
 }
 
@@ -42,7 +47,7 @@ export const mostUsedCharacterAlgorithm = (analyseText: string): string => {
   const charArray = analyseText
     .trim()
     .replace(/\s+/g, "")
-    .toLocaleLowerCase()
+    .toLowerCase()
     .split("")
     .sort()
 
@@ -114,9 +119,7 @@ export const longestPalindromicSubstringAlgorithm = (
 
 //Helper functions
 const getUniqueWords = (words: string[]) => {
-  return words.filter((elem, index, array) => {
-    return index === array.indexOf(elem)
-  })
+  return words.filter((elem, index, array) => index === array.indexOf(elem))
 }
 
 const getAnagrams = (analyseText: string) => {
@@ -126,14 +129,14 @@ const getAnagrams = (analyseText: string) => {
     .replace(/[.!?]/g, "")
     .split(/\s+/g)
   const uniqueWords = getUniqueWords(words)
-  const sortedUniqueWords = uniqueWords.map((word) => {
-    return word.toLowerCase().split("").sort().join("")
-  })
+  const sortedUniqueWords = uniqueWords.map((word) =>
+    word.toLowerCase().split("").sort().join("")
+  )
 
   // Get only duplicates -> abc abc abc acb returns abc abc (as there are three anagrams)
-  return sortedUniqueWords.filter((elem, index, array) => {
-    return index !== array.indexOf(elem)
-  })
+  return sortedUniqueWords.filter(
+    (elem, index, array) => index !== array.indexOf(elem)
+  )
 }
 
 const getMaxElementsInSortedArray = (array: string[]): string => {
@@ -171,8 +174,6 @@ const getMaxElementsInSortedArray = (array: string[]): string => {
  * @returns {string}
  */
 const getPalindromicSubstring = (word: string): string => {
-  const length: number = Math.round(word.length / 2)
-
   let maxLength = 0
   let maxPalindrome = ""
 
