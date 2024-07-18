@@ -162,6 +162,11 @@ const getMaxElementsInSortedArray = (array: string[]): string => {
       currentCount = 1
     }
   })
+  // Compare one more time as the last element could be the max
+  if (currentCount > maxCount) {
+    maxCount = currentCount
+    maxElement = currentElement
+  }
 
   return maxElement
 }
