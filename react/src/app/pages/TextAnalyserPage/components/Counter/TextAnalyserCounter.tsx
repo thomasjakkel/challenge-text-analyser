@@ -1,21 +1,45 @@
-import React from 'react';
+import React from "react"
 import "./TextAnalyserCounter.css"
-import TextAnalyserCounterItem from "./TextAnalyserCounterItem";
+import TextAnalyserCounterItem from "./TextAnalyserCounterItem"
+import { FullAnalysis } from "../../../../../services/types/fullAnalysis"
 
-function TextAnalyserCounter() {
-    return (
-        <div className="TextAnalyserCounter-container">
-            <div className="TextAnalyserCounter-row">
-                <TextAnalyserCounterItem label={"Words"} initValue={0}/>
-                <TextAnalyserCounterItem label={"Unique words"} initValue={0}/>
-                <TextAnalyserCounterItem label={"Sentences"} initValue={0}/>
-                <TextAnalyserCounterItem label={"Words of longest sentences"} initValue={0}/>
-                <TextAnalyserCounterItem label={"Characters"} initValue={0}/>
-                <TextAnalyserCounterItem label={"Lines"} initValue={0}/>
-                <TextAnalyserCounterItem label={"Number of anagrams"} initValue={0}/>
-            </div>
-        </div>
-    );
+type CounterAnalysis = FullAnalysis["counters"]
+
+function TextAnalyserCounter(countersAnalysis: CounterAnalysis) {
+  return (
+    <div className="TextAnalyserCounter-container">
+      <div className="TextAnalyserCounter-row">
+        <TextAnalyserCounterItem
+          label={"Words"}
+          initValue={countersAnalysis.countWords}
+        />
+        <TextAnalyserCounterItem
+          label={"Unique words"}
+          initValue={countersAnalysis.countUniqueWords}
+        />
+        <TextAnalyserCounterItem
+          label={"Sentences"}
+          initValue={countersAnalysis.countSentences}
+        />
+        <TextAnalyserCounterItem
+          label={"Words of longest sentences"}
+          initValue={countersAnalysis.countWordsInLongestSentence}
+        />
+        <TextAnalyserCounterItem
+          label={"Characters"}
+          initValue={countersAnalysis.countCharacters}
+        />
+        <TextAnalyserCounterItem
+          label={"Lines"}
+          initValue={countersAnalysis.countLines}
+        />
+        <TextAnalyserCounterItem
+          label={"Number of anagrams"}
+          initValue={countersAnalysis.countAnagrams}
+        />
+      </div>
+    </div>
+  )
 }
 
-export default TextAnalyserCounter;
+export default TextAnalyserCounter
